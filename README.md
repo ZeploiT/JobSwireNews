@@ -1,16 +1,13 @@
-# jobswire_case_project
+# JobSwireNews - Case Project
 
-A new Flutter project.
+Flutter case project that JobSwire company requested from me. It is a simple news application.
 
-## Getting Started
+## Used Libraries
+- cached_network_image
+- flutter_native_splash
+- share_plus
+- flutter_launcher_icons
 
-This project is a starting point for a Flutter application.
+<img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/ss1.png" alt="screenshot 1" width="250"/> <img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/ss2.png" alt="screenshot 2" width="250"/> <img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/ss3.png" alt="screenshot 3" width="250"/>    
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
