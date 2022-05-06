@@ -6,10 +6,10 @@ class ArticleModel {
   late String name;
 
   ArticleModel(Map json) {
-    source = json['source'] ?? "Bir sorun oluştu";
-    description = json['description'] ?? "Bir sorun oluştu";
-    name = json['name'] ?? "Bir sorun oluştu";
-    image = json['image'] ?? "Bir sorun oluştu";
-    url = json['url'] ?? "Bir sorun oluştu";
+    source = json['source'] ?? "Something's went wrong";
+    description = json['description'] ?? "Something's went wrong";
+    name = json['name'] ?? "Something's went wrong";
+    image = json['image'] ?? "Something's went wrong";
+    url = json['url'] ?? "Something's went wrong";
   }
 }
