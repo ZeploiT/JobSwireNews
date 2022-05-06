@@ -130,24 +130,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
                           height: 50,
                           minWidth: 100,
                           color: Color.fromARGB(254, 185, 235, 204),
-                          child: Text("Spor",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.indigo)),
-                          onPressed: () {
-                            setState(() {
-                              tag = "sport";
-                              newsList.clear();
-                              getNews(tag);
-                            });
-                          }),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      MaterialButton(
-                          height: 50,
-                          minWidth: 100,
-                          color: Color.fromARGB(254, 185, 235, 204),
                           child: Text("Teknoloji",
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
@@ -175,6 +157,24 @@ class _NewsHomePageState extends State<NewsHomePage> {
                           onPressed: () {
                             setState(() {
                               tag = "health";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text("Magazin",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.indigo)),
+                          onPressed: () {
+                            setState(() {
+                              tag = "magazine";
                               newsList.clear();
                               getNews(tag);
                             });
