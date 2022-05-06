@@ -1,1 +1,4 @@
 *.rb linguist-language=Dart
+*.html linguist-detectable=false
+*.C++ linguist-detectable=false
+
