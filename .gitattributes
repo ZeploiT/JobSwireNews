@@ -1,2 +1,1 @@
-*.c++ linguist-detectable=false
-*.html linguist-vendored
+*.* linguist-language=Dart
