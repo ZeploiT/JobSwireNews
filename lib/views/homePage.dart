@@ -4,8 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:jobswire_case_project/Views/articlePage.dart';
 import 'package:jobswire_case_project/models/articleModels.dart';
-
-import '../Service/apiService.dart';
+import 'package:jobswire_case_project/service/apiService.dart';
 
 class NewsHomePage extends StatefulWidget {
   const NewsHomePage({Key? key}) : super(key: key);
@@ -18,8 +17,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
   List<ArticleModel> newsList = [];
 
 // function that get news from api
-  void getNews() {
-    ApiService.getNews().then((data) {
+  void getNews(tag) {
+    ApiService.getNews(tag).then((data) {
       Map resultBody = json.decode(data.body);
       if (resultBody['success'] == true) {
         setState(() {
@@ -34,7 +33,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
 
   @override
   void initState() {
-    getNews();
+    getNews(tag);
     super.initState();
   }
 
@@ -51,7 +50,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
         body: RefreshIndicator(
           onRefresh: () async {
             setState(() {
-              getNews();
+              getNews(tag);
             });
             return await Future.delayed(Duration(seconds: 1));
           },
@@ -80,6 +79,113 @@ class _NewsHomePageState extends State<NewsHomePage> {
                   centerTitle: true,
                 ),
               ),
+              //category picker slider
+              SliverToBoxAdapter(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 8,
+                        height: 60,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text("Gündem",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.indigo)),
+                          onPressed: () {
+                            setState(() {
+                              tag = "general";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text("Ekonomi",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.indigo)),
+                          onPressed: () {
+                            setState(() {
+                              tag = "economy";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text("Spor",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.indigo)),
+                          onPressed: () {
+                            setState(() {
+                              tag = "sport";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text("Teknoloji",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.indigo)),
+                          onPressed: () {
+                            setState(() {
+                              tag = "technology";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      MaterialButton(
+                          height: 50,
+                          minWidth: 100,
+                          color: Color.fromARGB(254, 185, 235, 204),
+                          child: Text(
+                            "Sağlık",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: Colors.indigo),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              tag = "health";
+                              newsList.clear();
+                              getNews(tag);
+                            });
+                          }),
+                      SizedBox(
+                        width: 8,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (_, int index) {
@@ -98,10 +204,15 @@ class _NewsHomePageState extends State<NewsHomePage> {
                                   )),
                         );
                       },
-                      child: NewsTileStyle(
-                          imageUrl: newsList[index].image,
-                          title: newsList[index].name,
-                          source: newsList[index].source),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          NewsTileStyle(
+                              imageUrl: newsList[index].image,
+                              title: newsList[index].name,
+                              source: newsList[index].source),
+                        ],
+                      ),
                     );
                   },
                   childCount: newsList.length,
