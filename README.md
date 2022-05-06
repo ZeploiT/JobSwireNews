@@ -11,6 +11,17 @@ Flutter case project that JobSwire company requested from me. It is a simple new
 ## Screenshots
 <img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/preview1.png" alt="preview 1" width="250"/> <img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/preview2.png" alt="preview 2" width="250"/> <img src="https://raw.githubusercontent.com/ZeploiT/jobswire_case_project/main/preview3.png" alt="preview 3" width="250"/>        
 
+Installation
+
+```
+flutter pub get
+```
+Usage 
+
+```
+flutter run
+```
+
 ## API Connection
 
 [CollectAPI](https://collectapi.com/tr/api/news/haberler-api)
